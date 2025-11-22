@@ -465,40 +465,22 @@
 
     .woocommerce-message .message-container {
         font-size: 16px;
-    }
-}
-
-/************* Tablets **************/
-
-@media only screen and (min-width : 768px) and (max-width : 991px) {
-
-    /* Styles */
-    .swiper-wrapper.justify-center-t {
-        justify-content: center;
-    }
-}
-
-@media only screen and (min-width : 768px) and (max-width : 1024px) {}
-
-/************* Desktops ***************/
-
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
-    /* Styles */
-}
-
-@media only screen and (max-width : 1200px) {
-    /* Styles */
-}
-
-@media only screen and (min-width : 992px) {
-
-    /* Styles */
-    .checkout-page-header .page-title {
-        text-align: center;
+        background: transparent !important;
+        padding: 0 !important;
     }
 
-    .swiper-wrapper.justify-center-d {
-        justify-content: center;
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0 !important;
+    }
+
+    /* Add C/O Link Styling */
+    .page-wrapper {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .home .header-block {
+        display: none;
     }
 
     .woocommerce-checkout .header-block.block-html-after-header {
@@ -708,237 +690,42 @@
 
     .woocommerce-form__label-for-checkbox input[type="checkbox"] {
         margin-right: 10px;
-        /* --------------/Checkout Page-------------- */
+        margin-top: 0;
+        /* Ensure it aligns with text */
+    }
 
-        /*********** Smartphones ************/
+    /* --- Order Notes Outline --- */
+    #order_comments_field textarea {
+        border: 1px solid #ccc !important;
+        padding: 10px;
+        border-radius: 4px;
+    }
 
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            /* Styles */
-        }
+    /* --- Send to a different address Box Styling --- */
+    #ship-to-different-address {
+        background: #fff;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-        @media only screen and (max-width : 767px) {
+    #ship-to-different-address label {
+        margin-bottom: 0 !important;
+        font-weight: 500;
+        color: #333;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        font-size: 15px;
+    }
 
-            /* Styles */
-            .swiper-wrapper.justify-center-m {
-                justify-content: center;
-            }
-
-            #dintero-checkout-order-review {
-                padding: 0 8px;
-            }
-
-            .checkout-page-header {
-                margin: 15px 0;
-                padding: 0 6px;
-            }
-
-            .checkout-page-header .page-title {
-                font-size: 20px;
-                line-height: 28px;
-            }
-
-            .shop_table .product-name {
-                min-width: 260px;
-            }
-
-            /* Mobile cart controls */
-            .cart-item-info {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .cart-item-info .product-image {
-                width: 50px;
-                height: 50px;
-                margin-right: 0;
-            }
-
-            .cart-item-data {
-                width: 100%;
-                flex: 1;
-            }
-
-            .quantity-controls {
-                justify-content: flex-start;
-                margin: 4px 0;
-            }
-
-            .quantity-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 14px;
-            }
-
-            .qty-input {
-                width: 50px;
-                height: 28px;
-                font-size: 13px;
-            }
-
-            .remove-cart-item {
-                width: 38px;
-            }
-
-            #dintero-checkout-order-review .flex-row .flex-col.flex-grow {
-                width: 80% !important;
-                flex-grow: 1;
-            }
-
-            #dintero-checkout-order-review .flex-row .flex-col {
-                width: 20%;
-            }
-
-            #dintero-checkout-order-review .woocommerce-info {
-                padding-bottom: 0;
-            }
-
-            #dintero-checkout-iframe:after {
-                content: '';
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                height: 80px;
-                background-color: #fff;
-            }
-
-            .woocommerce-checkout {
-                margin-bottom: -25px;
-            }
-
-            .qty-input {
-                padding: 0 2px 0 2px !important;
-            }
-
-            #customer_details .form-row-last .input-text,
-            #customer_details .form-row-first .input-text {
-                border-radius: 8px !important;
-            }
-
-            #customer_details .form-row:first-child .input-text,
-            #customer_details .form-row-first .input-text {
-                border-right: 1px solid #ddd;
-            }
-
-            #customer_details .form-row-first,
-            #customer_details .form-row-last {
-                flex: 1;
-                width: 100%;
-            }
-
-            .checkout.woocommerce-checkout .col-inner.has-border {
-                padding: 0 !important;
-            }
-
-            .checkout-form-content.row {
-                flex-direction: column-reverse !important;
-            }
-
-            .checkout-form-content .col {
-                padding-left: 23px;
-                padding-right: 23px;
-            }
-
-            .woocommerce-message .message-container {
-                font-size: 16px;
-            }
-        }
-
-        /************* Tablets **************/
-
-        @media only screen and (min-width : 768px) and (max-width : 991px) {
-
-            /* Styles */
-            .swiper-wrapper.justify-center-t {
-                justify-content: center;
-            }
-        }
-
-        @media only screen and (min-width : 768px) and (max-width : 1024px) {}
-
-        /************* Desktops ***************/
-
-        @media only screen and (min-width : 992px) and (max-width : 1199px) {
-            /* Styles */
-        }
-
-        @media only screen and (max-width : 1200px) {
-            /* Styles */
-        }
-
-        @media only screen and (min-width : 992px) {
-
-            /* Styles */
-            .checkout-page-header .page-title {
-                text-align: center;
-            }
-
-            .swiper-wrapper.justify-center-d {
-                justify-content: center;
-            }
-
-            #dintero-checkout-iframe iframe {
-                margin: -30px;
-            }
-
-            .dintero-checkout-two-column-left #dintero-express-wrapper,
-            .dintero-checkout-two-column-left-sf #dintero-express-wrapper {
-                grid-column-gap: 0;
-            }
-        }
-
-        @media (min-width: 850px) {
-            body.woocommerce-checkout .checkout.woocommerce-checkout {
-                margin-top: 40px;
-            }
-        }
-
-        /* --- Fix for 3 buttons aligned (Checkboxes) --- */
-        .woocommerce-form__label-for-checkbox {
-            display: flex !important;
-            align-items: center;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .woocommerce-form__label-for-checkbox input[type="checkbox"] {
-            margin-right: 10px;
-            margin-top: 0;
-            /* Ensure it aligns with text */
-        }
-
-        /* --- Order Notes Outline --- */
-        #order_comments_field textarea {
-            border: 1px solid #ccc !important;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        /* --- Send to a different address Box Styling --- */
-        #ship-to-different-address {
-            background: #fff;
-            padding: 15px 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        #ship-to-different-address label {
-            margin-bottom: 0 !important;
-            font-weight: 500;
-            color: #333;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        #ship-to-different-address input[type="checkbox"] {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
-        }
+    #ship-to-different-address input[type="checkbox"] {
+        margin-right: 12px;
+        width: 18px;
+        height: 18px;
+    }

@@ -36,6 +36,7 @@ class Checkout_Fields {
 	 * @param array $fields Checkout fields.
 	 * @return array
 	 */
+	public function customize_checkout_fields( $fields ) {
 		// Remove unwanted fields if necessary (e.g. company)
 		unset( $fields['billing']['billing_company'] );
 		unset( $fields['shipping']['shipping_company'] );
