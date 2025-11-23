@@ -101,6 +101,52 @@ class Checkout_Fields {
 		$fields['billing']['billing_city']['class'] = array( 'form-row-last' );
 		$fields['billing']['billing_city']['priority'] = 80;
 
+		// --- SHIPPING FIELDS ---
+
+		// Reorder and resize Shipping Fields
+		$shipping_order = array(
+			'shipping_first_name',
+			'shipping_last_name',
+			'shipping_country',
+			'shipping_address_1',
+			'shipping_address_2',
+			'shipping_postcode',
+			'shipping_city',
+		);
+
+		$fields['shipping'] = $this->reorder_fields( $fields['shipping'], $shipping_order );
+
+		// First Name - Half Width (First)
+		$fields['shipping']['shipping_first_name']['class'] = array( 'form-row-first' );
+		$fields['shipping']['shipping_first_name']['priority'] = 30;
+
+		// Last Name - Half Width (Last)
+		$fields['shipping']['shipping_last_name']['class'] = array( 'form-row-last' );
+		$fields['shipping']['shipping_last_name']['priority'] = 40;
+
+		// Country - Full Width
+		$fields['shipping']['shipping_country']['class'] = array( 'form-row-wide' );
+		$fields['shipping']['shipping_country']['priority'] = 50;
+
+		// Address - Full Width
+		$fields['shipping']['shipping_address_1']['class'] = array( 'form-row-wide' );
+		$fields['shipping']['shipping_address_1']['priority'] = 60;
+		$fields['shipping']['shipping_address_1']['placeholder'] = '';
+
+		// C/O (Address 2) - Hidden initially, Full Width (if we want to mirror billing behavior, but standard is fine too)
+		// For now, let's keep it simple and just ensure layout is correct.
+		if ( isset( $fields['shipping']['shipping_address_2'] ) ) {
+			$fields['shipping']['shipping_address_2']['class'] = array( 'form-row-wide' );
+		}
+
+		// Postcode - Half Width (First)
+		$fields['shipping']['shipping_postcode']['class'] = array( 'form-row-first' );
+		$fields['shipping']['shipping_postcode']['priority'] = 70;
+
+		// City - Half Width (Last)
+		$fields['shipping']['shipping_city']['class'] = array( 'form-row-last' );
+		$fields['shipping']['shipping_city']['priority'] = 80;
+
 		return $fields;
 	}
 

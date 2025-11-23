@@ -116,8 +116,17 @@ class Core {
 		remove_action( 'woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
 		remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
 		
+		// Add payment heading
+		add_action( 'woocommerce_checkout_order_review', array( $this, 'render_payment_heading' ), 15 );
+
 		// Add payment section back
 		add_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+	}
+
+	public function render_payment_heading() {
+		?>
+		<h3 id="payment_heading"><?php esc_html_e( 'Zapłata', 'iviskin-checkout-customizer' ); ?></h3>
+		<?php
 	}
 
 	public function render_cart_summary() {
