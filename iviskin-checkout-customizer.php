@@ -3,7 +3,7 @@
  * Plugin Name: Iviskin Checkout Customizer
  * Plugin URI: https://iviskin.no
  * Description: Customizes the WooCommerce checkout experience for Iviskin (Flatsome dependent).
- * Version: 2.6
+ * Version: 2.7
  * Author: Softvila
  * Author URI: https://softvila.com
  * Text Domain: iviskin-checkout-customizer
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants.
-define( 'ICC_VERSION', '2.6' );
+define( 'ICC_VERSION', '2.7' );
 define( 'ICC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ICC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 

@@ -11,6 +11,77 @@
 #dintero-checkout-order-review .cart_item button {
     margin: 0;
 }
+/* Coupon Form Styling */
+.icc-coupon-wrapper {
+    margin: 20px 0;
+}
+
+.icc-coupon-form {
+    margin: 0;
+    padding: 0;
+    display: block !important;
+}
+
+.icc-coupon-inner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.icc-coupon-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icc-coupon-input:focus {
+    outline: none;
+    border-color: #999;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.icc-coupon-input::placeholder {
+    color: #999;
+}
+
+/* General button styling for checkout */
+#dintero-checkout-order-review .button.expand,
+.checkout-form-content .button.expand,
+.icc-coupon-button,
+button[name="apply_coupon"] {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 12px 20px !important;
+    border-radius: 8px;
+    margin-right: 0;
+    height: auto;
+    min-width: 62px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+#dintero-checkout-order-review .button.expand:hover,
+.checkout-form-content .button.expand:hover,
+.icc-coupon-button:hover,
+button[name="apply_coupon"]:hover {
+    background-color: #CBCBCB;
+    border-color: #CBCBCB;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
 
 /* Cart Item Controls */
 .cart-item-info {

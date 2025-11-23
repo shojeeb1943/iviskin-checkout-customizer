@@ -28,9 +28,13 @@ class Core {
 		add_action( 'wp_footer', array( $this, 'force_dintero_selection' ) );
 		add_action( 'wp_loaded', array( $this, 'clear_checkout_notices' ) );
 		
-		// Move Coupon Form
+		// Move Coupon Form to sidebar
 		remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-		add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form', 10 );
+		add_action( 'icc_checkout_sidebar', 'woocommerce_checkout_coupon_form', 20 );
+		
+		// Customize checkout layout
+		add_action( 'woocommerce_checkout_order_review', array( $this, 'customize_order_review' ), 5 );
+		add_action( 'icc_checkout_sidebar', array( $this, 'render_cart_summary' ), 10 );
 	}
 
 	private function init_components() {
@@ -105,5 +109,18 @@ class Core {
 				}
 			}
 		}, 1 );
+	}
+
+	public function customize_order_review() {
+		// Remove the cart table from order review, keep only payment section
+		remove_action( 'woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
+		remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+		
+		// Add payment section back
+		add_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+	}
+
+	public function render_cart_summary() {
+		woocommerce_order_review();
 	}
 }

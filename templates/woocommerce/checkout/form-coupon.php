@@ -22,22 +22,11 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 }
 
 ?>
-<div class="woocommerce-form-coupon-toggle">
-	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', esc_html__( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . esc_html__( 'Click here to enter your code', 'woocommerce' ) . '</a>' ), 'notice' ); ?>
+<div class="icc-coupon-wrapper">
+	<form class="checkout_coupon woocommerce-form-coupon icc-coupon-form" method="post">
+		<div class="icc-coupon-inner">
+			<input type="text" name="coupon_code" class="input-text icc-coupon-input" placeholder="<?php esc_attr_e( 'Rabattkode eller gavekort', 'iviskin-checkout-customizer' ); ?>" id="coupon_code" value="" />
+			<button type="submit" class="button icc-coupon-button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Bruk', 'iviskin-checkout-customizer' ); ?>"><?php esc_html_e( 'Bruk', 'iviskin-checkout-customizer' ); ?></button>
+		</div>
+	</form>
 </div>
-
-<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
-
-	<p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'woocommerce' ); ?></p>
-
-	<p class="form-row form-row-first">
-		<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
-		<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
-	</p>
-
-	<p class="form-row form-row-last">
-		<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Użyj', 'iviskin-checkout-customizer' ); ?>"><?php esc_html_e( 'Użyj', 'iviskin-checkout-customizer' ); ?></button>
-	</p>
-
-	<div class="clear"></div>
-</form>

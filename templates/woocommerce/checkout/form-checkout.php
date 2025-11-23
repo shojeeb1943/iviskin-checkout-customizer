@@ -76,6 +76,16 @@ if ( get_theme_mod( 'facebook_login_checkout', 0 ) && get_option( 'woocommerce_e
 
 			<?php endif; ?>
 
+			<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
+
+			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+
+			<div id="order_review" class="woocommerce-checkout-review-order">
+				<?php do_action( 'woocommerce_checkout_order_review' ); ?>
+			</div>
+
+			<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+
 		</div>
 
 		<div class="large-5 col">
@@ -83,16 +93,7 @@ if ( get_theme_mod( 'facebook_login_checkout', 0 ) && get_option( 'woocommerce_e
 
 					<div class="col-inner <?php echo esc_attr( $sidebar_classes ); ?>">
 						<div class="checkout-sidebar sm-touch-scroll">
-
-							<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-
-							<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-
-							<div id="order_review" class="woocommerce-checkout-review-order">
-								<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-							</div>
-
-							<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+							<?php do_action( 'icc_checkout_sidebar' ); ?>
 						</div>
 					</div>
 
