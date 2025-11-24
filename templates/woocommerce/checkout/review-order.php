@@ -88,6 +88,7 @@ defined( 'ABSPATH' ) || exit;
 			</tr>
 		<?php endforeach; ?>
 
+		<?php /* Shipping moved to left column
 		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
 			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
@@ -97,6 +98,7 @@ defined( 'ABSPATH' ) || exit;
 			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
 		<?php endif; ?>
+		*/ ?>
 
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<tr class="fee">

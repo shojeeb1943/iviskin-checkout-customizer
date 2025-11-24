@@ -119,14 +119,74 @@ class Core {
 		// Add payment heading
 		add_action( 'woocommerce_checkout_order_review', array( $this, 'render_payment_heading' ), 15 );
 
+		// Add shipping section before payment
+		add_action( 'woocommerce_checkout_order_review', array( $this, 'render_shipping_section' ), 10 );
+
 		// Add payment section back
 		add_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+
+		// Add fragment update for shipping section
+		add_filter( 'woocommerce_update_order_review_fragments', array( $this, 'add_shipping_fragment' ) );
 	}
 
 	public function render_payment_heading() {
 		?>
 		<h3 id="payment_heading"><?php esc_html_e( 'Zapłata', 'iviskin-checkout-customizer' ); ?></h3>
 		<?php
+	}
+
+	public function render_shipping_section() {
+		if ( ! WC()->cart->needs_shipping() || ! WC()->cart->show_shipping() ) {
+			return;
+		}
+
+		$packages = WC()->shipping()->get_packages();
+
+		echo '<div id="custom_shipping_methods_wrapper">';
+		echo '<h3>' . esc_html__( 'Wysyłka', 'iviskin-checkout-customizer' ) . '</h3>';
+		
+		foreach ( $packages as $i => $package ) {
+			$chosen_method = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
+			$product_names = array();
+
+			if ( count( $packages ) > 1 ) {
+				foreach ( $package['contents'] as $item_id => $values ) {
+					$product_names[ $item_id ] = $values['data']->get_name() . ' &times;' . $values['quantity'];
+				}
+				$product_names = implode( ', ', $product_names );
+			} else {
+				$product_names = ''; // Don't show package name if only one package
+			}
+
+			?>
+			<div class="custom-shipping-package">
+				<?php if ( ! empty( $product_names ) ) : ?>
+					<h4 class="package-name"><?php echo wp_kses_post( $product_names ); ?></h4>
+				<?php endif; ?>
+
+				<?php if ( count( $package['rates'] ) > 0 ) : ?>
+					<ul id="shipping_method" class="woocommerce-shipping-methods">
+						<?php foreach ( $package['rates'] as $method ) : ?>
+							<li>
+								<input type="radio" name="shipping_method[<?php echo esc_attr( $i ); ?>]" data-index="<?php echo esc_attr( $i ); ?>" id="shipping_method_<?php echo esc_attr( $i ); ?>_<?php echo esc_attr( sanitize_title( $method->id ) ); ?>" value="<?php echo esc_attr( $method->id ); ?>" class="shipping_method" <?php checked( $method->id, $chosen_method ); ?> />
+								<label for="shipping_method_<?php echo esc_attr( $i ); ?>_<?php echo esc_attr( sanitize_title( $method->id ) ); ?>"><?php echo wc_cart_totals_shipping_method_label( $method ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></label>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php else : ?>
+					<?php echo esc_html__( 'No shipping methods were found. Please double check your address, or contact us if you need any help.', 'woocommerce' ); ?>
+				<?php endif; ?>
+			</div>
+			<?php
+		}
+		echo '</div>';
+	}
+
+	public function add_shipping_fragment( $fragments ) {
+		ob_start();
+		$this->render_shipping_section();
+		$fragments['#custom_shipping_methods_wrapper'] = ob_get_clean();
+		return $fragments;
 	}
 
 	public function render_cart_summary() {

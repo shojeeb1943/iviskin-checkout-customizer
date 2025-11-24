@@ -1,58 +1,130 @@
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --spacing-xs: 8px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --color-border: #ddd;
+    --color-border-dark: #ccc;
+    --color-text: #333;
+    --color-text-light: #737373;
+    --color-text-muted: #888;
+    --color-text-placeholder: #999;
+    --color-bg-light: #f8f9fa;
+    --color-bg-white: #fff;
+    --color-hover: #e9ecef;
+    --color-active: #dee2e6;
+    --color-error-bg: #f8d7da;
+    --color-error-border: #f5c6cb;
+    --color-error-text: #721c24;
+    --color-focus: #007cba;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 1px 4px rgba(0, 0, 0, 0.12);
+    --transition-default: all 0.2s ease;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
 .position-relative {
     position: relative;
 }
 
-/* --------------Checkout Page-------------- */
-/* Updated styles are in Cart Item Controls section below */
+/* ============================================
+   Checkout Page Header
+   ============================================ */
 .checkout-page-header {
-    margin: 15px 0;
+    margin: var(--spacing-md) 0;
+}
+
+.checkout-page-header .page-title {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+/* ============================================
+   Page Wrapper
+   ============================================ */
+.page-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.home .header-block {
+    display: none;
+}
+
+.woocommerce-checkout .header-block.block-html-after-header {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.woocommerce-checkout .woocommerce-message .message-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* ============================================
+   Checkout Layout
+   ============================================ */
+.checkout.woocommerce-checkout .col-inner.has-border {
+    border: 0;
+    padding-top: 0;
 }
 
 #dintero-checkout-order-review .cart_item button {
     margin: 0;
 }
 
-/* Coupon Form Styling */
+/* ============================================
+   Coupon Form Styling
+   ============================================ */
 .icc-coupon-wrapper {
-    margin: 20px 0;
+    margin: var(--spacing-lg) 0;
 }
 
 .icc-coupon-form {
     margin: 0;
     padding: 0;
-    display: block !important;
+    display: block;
 }
 
 .icc-coupon-inner {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-sm);
     align-items: center;
 }
 
 #coupon_code.icc-coupon-input {
     flex: 1;
     padding: 12px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px !important;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
     font-size: 14px;
     line-height: 1;
     height: auto;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
 }
 
 .icc-coupon-input:focus {
     outline: none;
-    border-color: #999;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-text-muted);
+    box-shadow: var(--shadow-md);
 }
 
 .icc-coupon-input::placeholder {
-    color: #999;
+    color: var(--color-text-placeholder);
 }
 
-/* General button styling for checkout */
+/* ============================================
+   Button Styling
+   ============================================ */
 #dintero-checkout-order-review .button.expand,
 .checkout-form-content .button.expand,
 .icc-coupon-button,
@@ -61,16 +133,16 @@ button[name="apply_coupon"] {
     line-height: 1;
     font-weight: 400;
     text-transform: capitalize;
-    padding: 12px 20px !important;
-    border-radius: 8px;
+    padding: 12px var(--spacing-lg);
+    border-radius: var(--border-radius-md);
     margin-right: 0;
     height: auto;
     min-width: 62px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-white);
+    color: var(--color-text);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-default);
     cursor: pointer;
 }
 
@@ -78,24 +150,26 @@ button[name="apply_coupon"] {
 .checkout-form-content .button.expand:hover,
 .icc-coupon-button:hover,
 button[name="apply_coupon"]:hover {
-    background-color: #CBCBCB;
-    border-color: #CBCBCB;
-    color: #333;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    background-color: #cbcbcb;
+    border-color: #cbcbcb;
+    color: var(--color-text);
+    box-shadow: var(--shadow-md);
 }
 
-/* Cart Item Controls */
+/* ============================================
+   Cart Item Layout
+   ============================================ */
 .cart-item-info {
     position: relative;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: var(--spacing-sm);
 }
 
 .cart-item-info .product-image {
     width: 60px;
     height: 60px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-md);
     margin-right: 0;
     flex-shrink: 0;
 }
@@ -104,16 +178,24 @@ button[name="apply_coupon"]:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--border-radius-md);
 }
 
+.cart-item-data {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ============================================
+   Remove Cart Item Button
+   ============================================ */
 .remove-cart-item {
     position: absolute;
-    top: 10px;
+    top: var(--spacing-sm);
     right: -5px;
-    width: 38px;
-    height: 20px;
-    color: #888;
+    width: 8px;
+    /* height: 20px; */
+    color: var(--color-text-muted);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -122,24 +204,29 @@ button[name="apply_coupon"]:hover {
     justify-content: center;
     font-size: 10px;
     line-height: 1;
-    z-index: 100;
+    z-index: 10;
+    background: transparent;
+    padding: 0;
 }
 
 .remove-cart-item:hover {
     color: #f00;
-    transform: color 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .remove-cart-item svg {
-    width: 45px;
+    width: 18px;
     height: 45px;
     fill: currentColor;
 }
 
+/* ============================================
+   Quantity Controls
+   ============================================ */
 .quantity-controls {
     display: flex;
     align-items: center;
-    margin: 8px 0;
+    margin: var(--spacing-xs) 0;
     gap: 0;
     position: relative;
     z-index: 1;
@@ -147,8 +234,8 @@ button[name="apply_coupon"]:hover {
 }
 
 .quantity-btn {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-active);
     color: #495057;
     display: flex;
     align-items: center;
@@ -157,41 +244,39 @@ button[name="apply_coupon"]:hover {
     font-size: 16px;
     font-weight: bold;
     line-height: 1;
-    transition: all 0.2s ease;
-    border-radius: 4px;
+    transition: var(--transition-default);
+    border-radius: var(--border-radius-sm);
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     user-select: none;
     position: relative;
     z-index: 1;
     padding: 5px;
-    min-width: 35px !important;
+    min-width: 35px;
     min-height: 35px;
-    margin: 0 !important;
+    margin: 0;
 }
 
 .quantity-btn.without-button {
-    min-width: 35px !important;
-    padding: 2px !important;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    min-width: 35px;
+    padding: 2px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 .quantity-btn:hover {
-    background: #e9ecef;
+    background: var(--color-hover);
     border-color: #adb5bd;
 }
 
 .quantity-btn:active {
-    background: #dee2e6;
+    background: var(--color-active);
     transform: scale(0.95);
 }
 
 .quantity-btn:focus {
-    outline: 2px solid #007cba;
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
@@ -209,29 +294,26 @@ button[name="apply_coupon"]:hover {
     line-height: 1;
 }
 
-.cart-item-data {
-    flex: 1;
-    min-width: 0;
-}
-
 .qty-input {
-    text-align: center !important;
-    background: white;
+    text-align: center;
+    background: var(--color-bg-white);
     font-weight: 500;
     margin: 0;
-    padding: 0 2px 0 15px !important;
+    padding: 0 2px 0 var(--spacing-md);
     justify-content: center;
-    box-shadow: none !important;
-    border: 0 !important;
+    box-shadow: none;
+    border: 0;
 }
 
 .qty-input:focus {
     outline: none;
-    border-color: #007cba;
+    border-color: var(--color-focus);
     box-shadow: 0 0 0 2px rgba(0, 124, 186, 0.1);
 }
 
-/* Loading states */
+/* ============================================
+   Loading States
+   ============================================ */
 .cart_item.updating {
     opacity: 0.6;
     pointer-events: none;
@@ -244,7 +326,7 @@ button[name="apply_coupon"]:hover {
 .loading-spinner {
     width: 12px;
     height: 12px;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--color-bg-white);
     border-top: 2px solid transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -260,53 +342,47 @@ button[name="apply_coupon"]:hover {
     }
 }
 
-/* Norwegian-style messages */
+/* ============================================
+   WooCommerce Messages
+   ============================================ */
 .woocommerce-message {
-    display: none !important;
+    display: none;
 }
 
 .woocommerce-error {
     padding: 12px 16px;
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-md);
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
+    background-color: var(--color-error-bg);
+    border: 1px solid var(--color-error-border);
+    color: var(--color-error-text);
 }
 
-.checkout.woocommerce-checkout .col-inner.has-border {
-    border: 0;
-    padding-top: 0;
-}
-
-/* --- CUSTOM CHECKOUT FIELDS STYLING --- */
-
-/* Container for the fields */
+/* ============================================
+   Custom Checkout Fields Container
+   ============================================ */
 .woocommerce-billing-fields__field-wrapper,
 .woocommerce-shipping-fields__field-wrapper {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid #ccc;
-    /* Outer border */
-    border-radius: 4px;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
     overflow: hidden;
 }
 
-/* General Row Styling */
+/* ============================================
+   Form Row Styling
+   ============================================ */
 #customer_details .form-row {
     margin: 0;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ccc;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-dark);
     box-sizing: border-box;
-    float: none;
-    /* Reset float */
     width: 100%;
-    /* Default full width */
 }
 
-/* Remove bottom border from the last element(s) */
 #customer_details .form-row:last-child {
     border-bottom: none;
 }
@@ -318,26 +394,27 @@ button[name="apply_coupon"]:hover {
     float: left;
 }
 
-/* Add right border to the first half */
 #customer_details .form-row-first {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid var(--color-border-dark);
 }
 
 /* Force shipping address to full width */
 #customer_details #shipping_address_1_field {
-    width: 100% !important;
-    float: none !important;
-    border-right: none !important;
+    width: 100%;
+    float: none;
+    border-right: none;
 }
 
-/* Clear floats for safety (though flex handles it mostly) */
+/* Clear floats */
 #customer_details .form-row::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Input Styling to blend in */
+/* ============================================
+   Input Field Styling
+   ============================================ */
 #customer_details .input-text,
 #customer_details select {
     border: none;
@@ -346,8 +423,11 @@ button[name="apply_coupon"]:hover {
     margin: 0;
     box-shadow: none;
     width: 100%;
+    color: #000000;
+    font-weight: 600;
     font-size: 16px;
     height: auto;
+    border-radius: var(--border-radius-md);
 }
 
 #customer_details .input-text:focus,
@@ -357,83 +437,102 @@ button[name="apply_coupon"]:hover {
     box-shadow: none;
 }
 
-/* Labels */
-#customer_details label {
-    display: block;
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 2px;
-    font-weight: normal;
+#customer_details #shipping_address_1_field .input-text {
+    border-radius: var(--border-radius-md);
 }
 
-/* Specific Adjustments */
+/* ============================================
+   Label Styling
+   ============================================ */
+#customer_details label {
+    display: block;
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: 2px;
+    font-weight: 500;
+}
 
-/* Remove default WooCommerce spacing */
+/* ============================================
+   WooCommerce Form Adjustments
+   ============================================ */
 .woocommerce-billing-fields p.form-row {
     margin-bottom: 0;
 }
 
-/* Fix for select2 if present (Country field) */
+/* ============================================
+   Select2 Styling (Country Dropdown)
+   ============================================ */
 .select2-container--default .select2-selection--single {
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
-    padding-left: 0 !important;
+    padding-left: 0;
 }
 
-/* Add C/O Link Styling */
-.page-wrapper {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
+/* ============================================
+   Ship to Different Address Checkbox
+   ============================================ */
 
-.home .header-block {
-    display: none;
-}
-
-.woocommerce-checkout .header-block.block-html-after-header {
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.woocommerce-checkout .woocommerce-message .message-container {
+/* Remove Flatsome spacing on the ship-to-different-address block */
+#ship-to-different-address {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
     display: flex;
-    flex-direction: column-reverse;
     align-items: center;
+    margin-bottom: 12px !important;
+}
+
+/* Align the checkbox and text just like the first (newsletter) one */
+#ship-to-different-address label {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px;
+    /* space between checkbox + text */
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* Make the actual input match the first checkbox size */
+#ship-to-different-address input[type="checkbox"] {
+    margin: 0 !important;
+    width: 13px !important;
+    height: 13px !important;
+}
+
+
+/* ============================================
+   Merge Shipping and Additional Fields
+   ============================================ */
+.woocommerce-shipping-fields__field-wrapper {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     margin-bottom: 0;
 }
 
-/* --- Fix for 3 checkboxes aligned horizontally --- */
-p.form-row:has(.woocommerce-form__label-for-checkbox) {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 15px;
-    width: 100%;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 0 !important;
-    border: none !important;
-    margin: 0 !important;
-}
-
+/* ============================================
+   Checkbox Form Rows
+   ============================================ */
 .woocommerce-form__label-for-checkbox {
-    display: flex !important;
+    display: flex;
     align-items: center;
     cursor: pointer;
     font-weight: 500;
-    color: #333;
+    color: var(--color-text);
     line-height: 1.4;
-    width: auto;
-    flex: 1 1 calc(33.333% - 10px);
-    min-width: 180px;
-    background: transparent !important;
-    padding: 0 !important;
-    border: none !important;
-    margin: 0 !important;
-    box-shadow: none !important;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    border: none;
+    margin: 0;
+    box-shadow: none;
 }
 
 .woocommerce-form__label-for-checkbox input[type="checkbox"] {
@@ -444,33 +543,32 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
     flex-shrink: 0;
 }
 
-/* --------------/Checkout Page-------------- */
+/* ============================================
+   Omnisend/Marketing Checkbox Fix
+   ============================================ */
+.form-row.omnisend_newsletter_checkbox_field {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 
-/*********** Smartphones ************/
-
-@media only screen and (min-width : 320px) and (max-width : 480px) {
-    /* Styles */
 }
 
-@media only screen and (max-width : 767px) {
+/* ============================================
+   RESPONSIVE: Mobile Phones (320px - 767px)
+   ============================================ */
+@media only screen and (max-width: 767px) {
 
-    /* Styles */
+    /* Layout adjustments */
     .swiper-wrapper.justify-center-m {
         justify-content: center;
     }
 
     #dintero-checkout-order-review {
-        padding: 0 8px;
+        padding: 0 var(--spacing-xs);
     }
 
     .checkout-page-header {
-        margin: 15px 0;
+        margin: var(--spacing-md) 0;
         padding: 0 6px;
-    }
-
-    .checkout-page-header .page-title {
-        font-size: 20px;
-        line-height: 28px;
     }
 
     .shop_table .product-name {
@@ -481,7 +579,7 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
     .cart-item-info {
         flex-direction: row;
         align-items: flex-start;
-        gap: 8px;
+        gap: var(--spacing-xs);
     }
 
     .cart-item-info .product-image {
@@ -504,12 +602,15 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
         width: 28px;
         height: 28px;
         font-size: 14px;
+        min-width: 28px;
+        min-height: 28px;
     }
 
     .qty-input {
         width: 50px;
         height: 28px;
         font-size: 13px;
+        padding: 0 2px;
     }
 
     .remove-cart-item {
@@ -517,7 +618,7 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
     }
 
     #dintero-checkout-order-review .flex-row .flex-col.flex-grow {
-        width: 80% !important;
+        width: 80%;
         flex-grow: 1;
     }
 
@@ -529,31 +630,28 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
         padding-bottom: 0;
     }
 
-    #dintero-checkout-iframe:after {
+    #dintero-checkout-iframe::after {
         content: '';
         width: 100%;
         position: absolute;
         bottom: 0;
         height: 80px;
-        background-color: #fff;
+        background-color: var(--color-bg-white);
     }
 
     .woocommerce-checkout {
         margin-bottom: -25px;
     }
 
-    .qty-input {
-        padding: 0 2px 0 2px !important;
-    }
-
+    /* Form fields mobile */
     #customer_details .form-row-last .input-text,
     #customer_details .form-row-first .input-text {
-        border-radius: 8px !important;
+        border-radius: var(--border-radius-md);
     }
 
     #customer_details .form-row:first-child .input-text,
     #customer_details .form-row-first .input-text {
-        border-right: 1px solid #ddd;
+        border-right: 1px solid var(--color-border);
     }
 
     #customer_details .form-row-first,
@@ -563,11 +661,11 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
     }
 
     .checkout.woocommerce-checkout .col-inner.has-border {
-        padding: 0 !important;
+        padding: 0;
     }
 
     .checkout-form-content.row {
-        flex-direction: column-reverse !important;
+        flex-direction: column-reverse;
     }
 
     .checkout-form-content .col {
@@ -577,29 +675,40 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
 
     .woocommerce-message .message-container {
         font-size: 16px;
-        background: transparent !important;
-        padding: 0 !important;
+        background: transparent;
+        padding: 0;
     }
 
-    .select2-container .select2-selection--single .select2-selection__rendered {
-        padding-left: 0 !important;
+    /* Checkbox stacking on mobile */
+    .checkout-form-content p.form-row:has(.woocommerce-form__label-for-checkbox),
+    #ship-to-different-address {
+        width: 100%;
+        float: none;
+        margin-right: 0;
     }
 }
 
-/************* Tablets **************/
-
+/* ============================================
+   RESPONSIVE: Tablets (768px - 991px)
+   ============================================ */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .swiper-wrapper.justify-center-t {
         justify-content: center;
     }
 }
 
-/************* Desktops ***************/
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    /* Styles */
+/* ============================================
+   RESPONSIVE: Small Desktops (850px+)
+   ============================================ */
+@media (min-width: 850px) {
+    body.woocommerce-checkout .checkout.woocommerce-checkout {
+        margin-top: 40px;
+    }
 }
 
+/* ============================================
+   RESPONSIVE: Desktops (992px+)
+   ============================================ */
 @media only screen and (min-width: 992px) {
     .checkout-page-header .page-title {
         text-align: center;
@@ -619,73 +728,176 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
     }
 }
 
-@media (min-width: 850px) {
-    body.woocommerce-checkout .checkout.woocommerce-checkout {
-        margin-top: 40px;
-    }
-}
-
-/* --- Order Notes Outline --- */
+/* Hide Order Notes Section Completely */
+.woocommerce-additional-fields,
+.woocommerce-additional-fields__field-wrapper,
 #order_comments_field {
     display: none !important;
 }
 
-#order_comments_field textarea {
-    border: 1px solid #ccc !important;
-    padding: 10px;
-    border-radius: 4px;
+/* ============================================================
+   PAYMENT METHODS – CLEAN, FINAL, ALIGNMENT FIXED
+   ============================================================ */
+
+/* Payment container */
+#payment,
+.woocommerce-checkout-payment {
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
+    padding: 0;
+    margin-top: var(--spacing-lg);
+    overflow: hidden;
 }
 
-/* --- Send to a different address Box Styling --- */
-#ship-to-different-address {
-    background: #fff;
-    padding: 15px 20px;
-
-    border-radius: 4px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-
+/* Remove extra WooCommerce spacing */
+#payment ul.payment_methods {
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
-#ship-to-different-address label {
-    margin-bottom: 0 !important;
-    font-weight: 500;
-    color: #666;
-    display: flex;
-    align-items: center;
+/* Each payment method row */
+#payment .payment_methods li {
+    display: block !important;
+    padding: 14px 16px !important;
+    margin: 0;
+    border-bottom: 1px solid var(--color-border-dark);
+    background: var(--color-bg-white);
+}
+
+/* Last item */
+#payment .payment_methods li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================================
+   LABEL: Text LEFT — Icons RIGHT
+   ============================================================ */
+#payment .payment_methods li label {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     width: 100%;
     cursor: pointer;
-    font-size: 12px;
+    font-weight: 500;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 12px;
 }
 
-#ship-to-different-address input[type="checkbox"] {
+/* Radio button spacing */
+#payment .payment_methods li input[type="radio"] {
     margin-right: 10px;
-    width: 13px;
-    height: 13px;
 }
 
-/* Merge Shipping and Additional Fields Boxes */
-.woocommerce-shipping-fields__field-wrapper {
-    border-bottom: none !important;
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
+/* Push label text LEFT */
+#payment .payment_methods li label span:not(.wc-stripe-card-icons-container) {
+    margin-right: auto !important;
+    display: block;
+}
+
+/* ============================================================
+   STRIPE (Credit/Debit Cards) ICONS — THE IMPORTANT FIX
+   ============================================================ */
+
+/* Ensure icons are INSIDE label + aligned RIGHT */
+.payment_method_stripe_cc label {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Force Stripe icons to right inside the label */
+.payment_method_stripe_cc .wc-stripe-card-icons-container {
+    order: 2 !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    float: none !important;
+    padding: 0 !important;
+}
+
+/* Individual card icon size */
+.payment_method_stripe_cc .wc-stripe-card-icons-container img {
+    height: 26px !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+/* ============================================================
+   ALL OTHER PAYMENT ICONS (Blik / P24 / Klarna / Revolut)
+   ============================================================ */
+#payment .payment_methods li label img,
+#payment .payment_methods li label svg {
+    margin-left: auto !important;
+    height: 28px !important;
+    width: auto !important;
+    display: block !important;
+    align-self: center !important;
+}
+
+/* ============================================================
+   PAYMENT BOX POSITION (Stripe form, Apple Pay, P24 etc.)
+   ============================================================ */
+#payment .payment_box {
+    background: var(--color-bg-light);
+    border-top: 1px solid var(--color-border-dark);
+    padding: 16px !important;
+    margin: 10px -16px -16px !important;
+    width: calc(100% + 32px) !important;
+}
+/* ============================================
+   Shipping Methods Box Styling
+   ============================================ */
+#custom_shipping_methods_wrapper .woocommerce-shipping-methods {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    background: var(--color-bg-white);
+}
+
+#custom_shipping_methods_wrapper .woocommerce-shipping-methods li {
+    display: flex !important;
+    align-items: center;
+    padding: 14px 16px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid var(--color-border-dark);
+    position: relative;
+}
+
+#custom_shipping_methods_wrapper .woocommerce-shipping-methods li:last-child {
+    border-bottom: none;
+}
+
+#custom_shipping_methods_wrapper .woocommerce-shipping-methods li input[type="radio"] {
+    margin-right: 12px;
+    margin-top: 0;
+}
+
+#custom_shipping_methods_wrapper .woocommerce-shipping-methods li label {
     margin-bottom: 0 !important;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    width: 100%;
 }
 
-/* .woocommerce-additional-fields__field-wrapper {
-    border-top: none !important;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    margin-top: 0 !important;
-} */
-
-/* --- Input Fields Rounded Corners --- */
-#customer_details .input-text,
-#customer_details select {
-    border-radius: 8px !important;
+/* ============================================
+   Place Order Button Styling
+   ============================================ */
+#place_order {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+    transition: all 0.3s ease;
 }
 
-#customer_details #shipping_address_1_field .input-text {
-    border-radius: 8px !important;
+#place_order:hover {
+    background-color: #333333 !important;
+    border-color: #333333 !important;
 }
