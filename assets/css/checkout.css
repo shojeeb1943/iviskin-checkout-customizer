@@ -29,11 +29,11 @@
     align-items: center;
 }
 
-.icc-coupon-input {
+#coupon_code.icc-coupon-input {
     flex: 1;
     padding: 12px 16px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 8px !important;
     font-size: 14px;
     line-height: 1;
     height: auto;
@@ -640,19 +640,18 @@ p.form-row:has(.woocommerce-form__label-for-checkbox) {
 #ship-to-different-address {
     background: #fff;
     padding: 15px 20px;
-    
+
     border-radius: 4px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    
+
 }
 
 #ship-to-different-address label {
     margin-bottom: 0 !important;
     font-weight: 500;
-    color: #666
-;
+    color: #666;
     display: flex;
     align-items: center;
     width: 100%;
